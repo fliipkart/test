@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #e6f7ff; /* Light blue background */
+            background-color: #e6f7ff;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -20,66 +20,74 @@
             background: linear-gradient(to right bottom, skyblue, #E7F2F7);
             padding: 40px;
             border-radius: 10px;
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 
                         0 -4px 10px rgba(0, 0, 0, 0.1), 
                         4px 0 10px rgba(0, 0, 0, 0.1), 
-                        -4px 0 10px rgba(0, 0, 0, 0.1); 
+                        -4px 0 10px rgba(0, 0, 0, 0.1);
             width: 80%;
-            height: 200px;
             max-width: 500px;
         }
 
+
         h2 {
-            color: #333333; /* Dark text color */
+            color: #333333;
             margin-top: -10px;
+        }
+        
+
+        p {
+            font-size: 11px;
+            margin-top: -12px;
+            text-align: center;
         }
 
         input[type="text"] {
             width: 100%;
             padding: 10px;
-            margin-top: 20px;
+            margin-top: 10px;
             border-radius: 5px;
-            border: 1px solid #cccccc; /* Light gray border */
+            border: 1px solid #cccccc;
         }
 
         .button {
             padding: 10px 20px;
             margin-top: 20px;
-            background-color: white;/
-            color: #333333; /* Dark text color */
+            background-color: white;
+            color: #333333;
             border: 2px solid white;
             border-radius: 5px;
             cursor: pointer;
             transition: background 0.3s;
         }
-        .contact{
-          margin-top: -35px;
-          margin-left: 140px;
-          
+
+        .contact {
+            margin-top: -35px;
+            margin-left: 140px;
         }
-        
-        h1{
-          font-size: 10px;
-          margin-left: 120px;
-          margin-top: -45px;
+
+        h1 {
+            font-size: 10px;
+            margin-left: 130px;
+            margin-top: -45px;
         }
-        
-        i{
-          margin-left: 10px;
-          margin-top: 30px;
-          font-size: 15px;
-          color: black;
-          
+
+        i {
+            margin-left: 10px;
+            margin-top: 30px;
+            font-size: 15px;
+            color: black;
         }
 
         .button:hover {
-            background: linear-gradient(to right, #88b5d3, #f2f2f2); /* Darker blue to lighter gray on hover */
+            background: linear-gradient(to right, #88b5d3, #f2f2f2);
         }
 
         #safetyMessage {
             display: none;
             color: red;
-            margin-top: 12px;
+            margin-top: 10px;
+            font-size: 14px;
+            text-align: center;
         }
         
     </style>
@@ -89,29 +97,21 @@
 <div class="container">
     <h2>File Downloader</h2>
     
-    <p style="font-size: 10px;
-    margin-top: -12px;">you can download files from here by simply pasting<br> the url!</p>
+    <p>You can download files from here by simply pasting the URL!</p>
     <div>
-        <input type="text" id="fileUrl" placeholder="paste the URL">
+        <input type="text" id="fileUrl" placeholder="Paste the URL">
     </div>
 
     <button class="button" onclick="downloadFile()">Download</button>
   
-    
- 
-  <h1>Follow us</h1>
-  <div class="contact">
-  
-  <a href="https://github.com/Niyaz5">
-  <i class="fa-brands fa-github"></i></a>
-    <a href="https://instagram.com/ni.yyaz">
-  <i class="fa-brands fa-instagram"></i></a>
-    <a href="discord.com/users/1196002280382681122">
-  <i class="fa-brands fa-discord"></i></a>
-    <a href="https://mailto:sulustore54@gmail.com">
-  <i class="fa-brands fa-google"></i></a>
-  
-   </div>
+    <h1>Follow us</h1>
+    <div class="contact">
+        <a href="https://github.com/Niyaz5"><i class="fa-brands fa-github"></i></a>
+        <a href="https://instagram.com/ni.yyaz"><i class="fa-brands fa-instagram"></i></a>
+        <a href="discord.com/users/1196002280382681122"><i class="fa-brands fa-discord"></i></a>
+        <a href="mailto:sulustore54@gmail.com"><i class="fa-brands fa-google"></i></a>
+    </div>
+
     <div id="safetyMessage"></div>
 </div>
 
