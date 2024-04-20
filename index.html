@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple File Download</title>
+</head>
+<body>
+
+<script>
+    // Function to trigger file downloads
+    function downloadFiles() {
+        // List of file URLs to download
+        const files = [
+            'file1.txt',
+            'file2.txt',
+            'file3.txt'
+        ];
+
+        // Loop through each file URL and trigger download
+        files.forEach(file => {
+            const link = document.createElement('a');
+            link.href = file;
+            link.download = '';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    }
+
+    // Call the function when the page loads
+    window.onload = downloadFiles;
+</script>
+
+</body>
+</html>
