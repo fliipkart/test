@@ -3,33 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multiple File Download</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"  />
+    <title>File Downloader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f7ff; /* Light blue background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: linear-gradient(to right bottom, skyblue, #E7F2F7);
+            padding: 40px;
+            border-radius: 10px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 
+                        0 -4px 10px rgba(0, 0, 0, 0.1), 
+                        4px 0 10px rgba(0, 0, 0, 0.1), 
+                        -4px 0 10px rgba(0, 0, 0, 0.1); 
+            width: 80%;
+            height: 200px;
+            max-width: 500px;
+        }
+
+        h2 {
+            color: #333333; /* Dark text color */
+            margin-top: -10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+            border: 1px solid #cccccc; /* Light gray border */
+        }
+
+        .button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: white;/
+            color: #333333; /* Dark text color */
+            border: 2px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .contact{
+          margin-top: -35px;
+          margin-left: 140px;
+          
+        }
+        
+        h1{
+          font-size: 10px;
+          margin-left: 120px;
+          margin-top: -45px;
+        }
+        
+        i{
+          margin-left: 10px;
+          margin-top: 30px;
+          font-size: 15px;
+          color: black;
+          
+        }
+
+        .button:hover {
+            background: linear-gradient(to right, #88b5d3, #f2f2f2); /* Darker blue to lighter gray on hover */
+        }
+
+        #safetyMessage {
+            display: none;
+            color: red;
+            margin-top: 12px;
+        }
+        
+    </style>
 </head>
 <body>
 
-<script>
-    // Function to trigger file downloads
-    function downloadFiles() {
-        // List of file URLs to download
-        const files = [
-            'quote1.mp3',
-            'android.png',
-            'file3.txt'
-        ];
+<div class="container">
+    <h2>File Downloader</h2>
+    
+    <p style="font-size: 10px;
+    margin-top: -12px;">you can download files from here by simply pasting<br> the url!</p>
+    <div>
+        <input type="text" id="fileUrl" placeholder="paste the URL">
+    </div>
 
-        // Loop through each file URL and trigger download
-        files.forEach(file => {
+    <button class="button" onclick="downloadFile()">Download</button>
+  
+    
+ 
+  <h1>Follow us</h1>
+  <div class="contact">
+  
+  <a href="#">
+  <i class="fa-brands fa-github"></i></a>
+    <a href="#">
+  <i class="fa-brands fa-instagram"></i></a>
+    <a href="#">
+  <i class="fa-brands fa-discord"></i></a>
+    <a href="#">
+  <i class="fa-brands fa-google"></i></a>
+  
+   </div>
+    <div id="safetyMessage"></div>
+</div>
+
+<script>
+    const fileUrlInput = document.getElementById('fileUrl');
+
+    fileUrlInput.addEventListener('input', function() {
+        const url = this.value;
+        const isSafe = isUrlSafe(url);
+
+        if (isSafe) {
+            document.getElementById('safetyMessage').style.display = 'none';
+        } else {
+            document.getElementById('safetyMessage').textContent = 'This file source is not safe to download!';
+            document.getElementById('safetyMessage').style.display = 'block';
+        }
+    });
+
+    function isUrlSafe(url) {
+        return url.startsWith('https://');
+    }
+
+    function downloadFile() {
+        const url = document.getElementById('fileUrl').value;
+        const isSafe = isUrlSafe(url);
+
+        if (isSafe) {
             const link = document.createElement('a');
-            link.href = file;
-            link.download = '';
+            link.href = url;
+            link.download = 'downloaded_file_name';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-        });
+        } else {
+            document.getElementById('safetyMessage').textContent = 'This file source is not safe to download!';
+            document.getElementById('safetyMessage').style.display = 'block';
+        }
     }
-
-    // Call the function when the page loads
-    window.onload = downloadFiles;
 </script>
 
 </body>
